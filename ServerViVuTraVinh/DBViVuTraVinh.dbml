@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="ViVuTraVinh" Class="DBViVuTraVinhDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=PC\SQLEXPRESS;Initial Catalog=ViVuTraVinh;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="ViVuTraVinhConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.DanhMuc" Member="DanhMucs">
+    <Type Name="DanhMuc">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TenDanhMuc" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="MoTa" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="NgayTao" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="TrangThai" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="DanhMuc_DiaDiem" Member="DiaDiems" AccessModifier="Internal" ThisKey="Id" OtherKey="DanhMucId" Type="DiaDiem" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TaiKhoan" Member="TaiKhoans">
+    <Type Name="TaiKhoan">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TenDangNhap" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="MatKhau" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="HoTen" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="SoDienThoai" Type="System.String" DbType="VarChar(11)" CanBeNull="true" />
+      <Column Name="Role" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Status" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="TaiKhoan_DiaDiem" Member="DiaDiems" AccessModifier="Internal" ThisKey="Id" OtherKey="NguoiTao" Type="DiaDiem" />
+      <Association Name="TaiKhoan_HinhAnh" Member="HinhAnhs" AccessModifier="Internal" ThisKey="Id" OtherKey="NguoiTao" Type="HinhAnh" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DiaDiem" Member="DiaDiems">
+    <Type Name="DiaDiem">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="HinhAnhId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DanhMucId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DiaChi" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="TenDiaDiem" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="MoTa" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MoTaNgan" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="NgayTao" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="NguoiTao" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="DiaDiem_DiaDiemTag" Member="DiaDiemTags" AccessModifier="Internal" ThisKey="Id" OtherKey="DiaDiemId" Type="DiaDiemTag" />
+      <Association Name="DanhMuc_DiaDiem" Member="DanhMuc" ThisKey="DanhMucId" OtherKey="Id" Type="DanhMuc" IsForeignKey="true" />
+      <Association Name="TaiKhoan_DiaDiem" Member="TaiKhoan" ThisKey="NguoiTao" OtherKey="Id" Type="TaiKhoan" IsForeignKey="true" />
+      <Association Name="HinhAnh_DiaDiem" Member="HinhAnh" ThisKey="HinhAnhId" OtherKey="Id" Type="HinhAnh" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DiaDiemTag" Member="DiaDiemTags">
+    <Type Name="DiaDiemTag">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DiaDiemId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TagId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="DiaDiem_DiaDiemTag" Member="DiaDiem" ThisKey="DiaDiemId" OtherKey="Id" Type="DiaDiem" IsForeignKey="true" />
+      <Association Name="Tag_DiaDiemTag" Member="Tag" ThisKey="TagId" OtherKey="Id" Type="Tag" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.HinhAnh" Member="HinhAnhs">
+    <Type Name="HinhAnh">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DuongDan" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="NgayTao" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="NguoiTao" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="HinhAnh_DiaDiem" Member="DiaDiems" AccessModifier="Internal" ThisKey="Id" OtherKey="HinhAnhId" Type="DiaDiem" />
+      <Association Name="TaiKhoan_HinhAnh" Member="TaiKhoan" ThisKey="NguoiTao" OtherKey="Id" Type="TaiKhoan" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tag" Member="Tags">
+    <Type Name="Tag">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TenTag" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="MoTa" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TrangThai" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NgayTao" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Association Name="Tag_DiaDiemTag" Member="DiaDiemTags" AccessModifier="Internal" ThisKey="Id" OtherKey="TagId" Type="DiaDiemTag" />
+    </Type>
+  </Table>
+</Database>

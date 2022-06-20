@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11.25, 8.5" name="DBViVuTraVinh">
+  <DataContextMoniker Name="/DBViVuTraVinhDataContext" />
+  <nestedChildShapes>
+    <classShape Id="e8e71961-224b-49ca-92a0-1b0030cef14f" absoluteBounds="3.5, 0.75, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/DBViVuTraVinhDataContext/DanhMuc" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9385c153-b8ab-4795-9245-8942f4058d52" absoluteBounds="3.515, 1.21, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a2cccae0-5261-407a-b185-36b209456e5d" absoluteBounds="0.75, 3.5, 2, 2.3478011067708335">
+      <DataClassMoniker Name="/DBViVuTraVinhDataContext/TaiKhoan" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2770decd-bdd5-482a-ab8a-09b3a02afdc7" absoluteBounds="0.765, 3.96, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="00ae9e99-4df4-4183-bde0-8db8ed4e9d1e" absoluteBounds="6.25, 3.375, 2, 2.5401025390625005">
+      <DataClassMoniker Name="/DBViVuTraVinhDataContext/DiaDiem" />
+      <nestedChildShapes>
+        <elementListCompartment Id="908e29c0-899b-4d18-867b-2c7f66bc965c" absoluteBounds="6.265, 3.835, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="32b79832-adc3-45d8-a5cb-1dabad6f6d29" absoluteBounds="9, 4, 2, 1.3862939453125005">
+      <DataClassMoniker Name="/DBViVuTraVinhDataContext/DiaDiemTag" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a80e774c-51e4-4aa9-be3c-26cd986b73c4" absoluteBounds="9.015, 4.46, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="1fef087a-c149-4b4a-adb5-a16639c25f92" absoluteBounds="3.5, 3.875, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/DBViVuTraVinhDataContext/HinhAnh" />
+      <nestedChildShapes>
+        <elementListCompartment Id="55f75d6a-8b5f-49ea-8577-1a10cf5479e5" absoluteBounds="3.515, 4.335, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="6b4821b9-8c11-4427-b4ac-9ef5f008641b" absoluteBounds="6.25, 0.75, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/DBViVuTraVinhDataContext/Tag" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e28eec5a-813f-4b8a-8271-64b65fb0d4e3" absoluteBounds="6.265, 1.21, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.5 : 2.52089680989583); (5.875 : 2.89589680989583); (5.875 : 4.64505126953125); (6.25 : 4.64505126953125)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DBViVuTraVinhDataContext/DanhMuc/DanhMuc_DiaDiem" />
+      <nodes>
+        <classShapeMoniker Id="e8e71961-224b-49ca-92a0-1b0030cef14f" />
+        <classShapeMoniker Id="00ae9e99-4df4-4183-bde0-8db8ed4e9d1e" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 5.6819482421875); (6.25 : 5.6819482421875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DBViVuTraVinhDataContext/TaiKhoan/TaiKhoan_DiaDiem" />
+      <nodes>
+        <classShapeMoniker Id="a2cccae0-5261-407a-b185-36b209456e5d" />
+        <classShapeMoniker Id="00ae9e99-4df4-4183-bde0-8db8ed4e9d1e" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.25 : 4.69314697265625); (9 : 4.69314697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DBViVuTraVinhDataContext/DiaDiem/DiaDiem_DiaDiemTag" />
+      <nodes>
+        <classShapeMoniker Id="00ae9e99-4df4-4183-bde0-8db8ed4e9d1e" />
+        <classShapeMoniker Id="32b79832-adc3-45d8-a5cb-1dabad6f6d29" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 5.11182332356771); (6.25 : 5.11182332356771)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DBViVuTraVinhDataContext/HinhAnh/HinhAnh_DiaDiem" />
+      <nodes>
+        <classShapeMoniker Id="1fef087a-c149-4b4a-adb5-a16639c25f92" />
+        <classShapeMoniker Id="00ae9e99-4df4-4183-bde0-8db8ed4e9d1e" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 4.66429768880208); (3.5 : 4.66429768880208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DBViVuTraVinhDataContext/TaiKhoan/TaiKhoan_HinhAnh" />
+      <nodes>
+        <classShapeMoniker Id="a2cccae0-5261-407a-b185-36b209456e5d" />
+        <classShapeMoniker Id="1fef087a-c149-4b4a-adb5-a16639c25f92" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.25 : 1.63544840494792); (10 : 1.63544840494792); (10 : 4)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DBViVuTraVinhDataContext/Tag/Tag_DiaDiemTag" />
+      <nodes>
+        <classShapeMoniker Id="6b4821b9-8c11-4427-b4ac-9ef5f008641b" />
+        <classShapeMoniker Id="32b79832-adc3-45d8-a5cb-1dabad6f6d29" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>
